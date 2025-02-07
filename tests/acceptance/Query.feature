@@ -22,8 +22,10 @@ Feature: Query
         use Doctrine\ODM\MongoDB\DocumentManager;
 
         interface I {
-          /** @return void */
-          public function doThings();
+          /**
+           * @psalm-api
+           */
+          public function doThings(): void;
         }
 
         /**
@@ -32,8 +34,10 @@ Feature: Query
          */
         function documentManager() {}
 
-        /** @return void */
-        function acceptsI(I $i) {}
+        /**
+         * @psalm-suppress UnusedParam
+         */
+        function acceptsI(I $i): void {}
       """
 
   @Query::getSingleResult
