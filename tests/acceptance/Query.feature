@@ -24,8 +24,9 @@ Feature: Query
         interface I {
           /**
            * @psalm-api
+           * @return void
            */
-          public function doThings(): void;
+          public function doThings();
         }
 
         /**
@@ -36,8 +37,9 @@ Feature: Query
 
         /**
          * @psalm-suppress UnusedParam
+         * @return void
          */
-        function acceptsI(I $i): void {}
+        function acceptsI(I $i) {}
       """
 
   @Query::getSingleResult
